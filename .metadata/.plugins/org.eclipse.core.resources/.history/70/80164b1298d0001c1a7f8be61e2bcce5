@@ -1,0 +1,14 @@
+/*******************************************************************************************
+* ! Title : Led Program
+* ! File Name : main.c
+* ! Description : This file has the implementation code for switching on led
+* ! Version : V1.0
+********************************************************************************************/
+//AVR Input Output Library Includes
+#include<avr/io.h>
+
+void main(void)
+{
+	DDRA = 0xFF;
+	PORTA = 0xFF;
+}
