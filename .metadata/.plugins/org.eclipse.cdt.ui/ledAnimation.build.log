@@ -1,5 +1,28 @@
-18:46:35 **** Incremental Build of configuration Debug for project ledAnimation ****
+12:58:34 **** Incremental Build of configuration Debug for project ledAnimation ****
 make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:8:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../main.c:11:
+d:/courses/parallel deploma/avr/imt_sdk_win_64/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: ledAnimation.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ledAnimation.map -mmcu=atmega32 -o "ledAnimation.elf"  ./main.o   
+Finished building target: ledAnimation.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ledAnimation.elf  >"ledAnimation.lss"
+Finished building: ledAnimation.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ledAnimation.elf  "ledAnimation.hex"
+Finished building: ledAnimation.hex
+ 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 ledAnimation.elf
 AVR Memory Usage
@@ -16,5 +39,5 @@ Data:          8 bytes (0.4% Full)
 Finished building: sizedummy
  
 
-18:46:35 Build Finished (took 164ms)
+12:58:38 Build Finished (took 3s.835ms)
 

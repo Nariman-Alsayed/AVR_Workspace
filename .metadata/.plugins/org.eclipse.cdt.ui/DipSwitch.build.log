@@ -1,0 +1,41 @@
+12:28:36 **** Incremental Build of configuration Debug for project DipSwitch ****
+make all 
+Building file: ../DIP_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIP_Program.d" -MT"DIP_Program.o" -c -o "DIP_Program.o" "../DIP_Program.c"
+../DIP_Program.c:27: warning: return type of 'main' is not 'int'
+../DIP_Program.c: In function 'main':
+../DIP_Program.c:29: warning: unused variable 'L_u8Dip'
+Finished building: ../DIP_Program.c
+ 
+Building target: DipSwitch.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DipSwitch.map -mmcu=atmega32 -o "DipSwitch.elf"  ./DIO_Program.o ./DIP_Program.o   
+Finished building target: DipSwitch.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DipSwitch.elf  >"DipSwitch.lss"
+Finished building: DipSwitch.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex DipSwitch.elf  "DipSwitch.hex"
+Finished building: DipSwitch.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DipSwitch.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2078 bytes (6.3% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+12:28:38 Build Finished (took 1s.412ms)
+

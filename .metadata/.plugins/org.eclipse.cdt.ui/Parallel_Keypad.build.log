@@ -1,0 +1,57 @@
+23:45:13 **** Build of configuration Debug for project Parallel_Keypad ****
+make all 
+Building file: ../DIO_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"DIO_Program.d" -MT"DIO_Program.o" -c -o "DIO_Program.o" "../DIO_Program.c"
+Finished building: ../DIO_Program.c
+ 
+Building file: ../KEYPAD_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"KEYPAD_Program.d" -MT"KEYPAD_Program.o" -c -o "KEYPAD_Program.o" "../KEYPAD_Program.c"
+In file included from ../KEYPAD_Program.c:18:
+d:/courses/parallel deploma/avr/imt_sdk_win_64/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../KEYPAD_Program.c:19:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+Finished building: ../KEYPAD_Program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:17:
+d:/courses/parallel deploma/avr/imt_sdk_win_64/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:18:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c:21: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: Parallel_Keypad.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Parallel_Keypad.map -mmcu=atmega16 -o "Parallel_Keypad.elf"  ./DIO_Program.o ./KEYPAD_Program.o ./main.o   
+Finished building target: Parallel_Keypad.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Parallel_Keypad.elf  >"Parallel_Keypad.lss"
+Finished building: Parallel_Keypad.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Parallel_Keypad.elf  "Parallel_Keypad.hex"
+Finished building: Parallel_Keypad.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Parallel_Keypad.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5340 bytes (32.6% Full)
+(.text + .data + .bootloader)
+
+Data:         24 bytes (2.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:45:15 Build Finished (took 1s.540ms)
+

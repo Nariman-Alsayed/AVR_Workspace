@@ -1,0 +1,14 @@
+14:08:11 **** Incremental Build of configuration Debug for project LCD ****
+make all 
+Building target: LCD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,LCD.map -mmcu=atmega32 -o "LCD.elf"  ./DIO_Program.o ./LCD_Program.o   
+./LCD_Program.o: In function `main':
+../LCD_Program.c:149: undefined reference to `MDIO_voidSetPortValue'
+../LCD_Program.c:149: undefined reference to `MDIO_voidSetPortValue'
+../LCD_Program.c:142: undefined reference to `MDIO_voidSetPortDirection'
+../LCD_Program.c:143: undefined reference to `MDIO_voidSetPortDirection'
+make: *** [LCD.elf] Error 1
+
+14:08:11 Build Finished (took 267ms)
+

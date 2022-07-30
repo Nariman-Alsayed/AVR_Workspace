@@ -1,0 +1,17 @@
+14:08:37 **** Incremental Build of configuration Debug for project Parallel_LCD ****
+make all 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Parallel_LCD.elf  "Parallel_LCD.hex"
+d:\Courses\Parallel deploma\AVR\IMT_SDK_Win_64\IMT_SDK_Win_64\WinAVR\bin\avr-objcopy.exe:Parallel_LCD.elf: File format not recognized
+make: [Parallel_LCD.hex] Error 1 (ignored)
+Finished building: Parallel_LCD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Parallel_LCD.elf
+avr-size: Parallel_LCD.elf: File format not recognized
+make: [sizedummy] Error 3 (ignored)
+Finished building: sizedummy
+ 
+
+14:08:37 Build Finished (took 200ms)
+

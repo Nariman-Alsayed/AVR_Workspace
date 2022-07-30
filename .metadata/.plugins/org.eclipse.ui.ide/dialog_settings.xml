@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="D:\Courses\Parallel deploma\AVR\Online\LABS\Lab8\23- Lab 23 - 02 June 2022 - EXTI\02- Labs\Parallel_EXTI"/>
+		<item value="D:\Courses\Parallel deploma\AVR\Online\LABS\Lab7\22- Lab 22 - 31 May 2022 -DC Motor - Stepper Motors\02- Labs\Parallel_STEPPER_MOTOR"/>
+		<item value="D:\Courses\Parallel deploma\AVR\Online\LABS\Lab7\22- Lab 22 - 31 May 2022 -DC Motor - Stepper Motors\02- Labs\Parallel_DCMOTOR"/>
+		<item value="D:\downlaods\Downloads\Parallel_Keypad"/>
+		<item value="D:\downlaods\Downloads\Parallel_SevenSeg"/>
+		<item value="D:\downlaods\Downloads\Parallel_LCD"/>
+	</list>
+</section>

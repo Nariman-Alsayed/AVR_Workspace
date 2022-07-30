@@ -1,5 +1,18 @@
-18:46:34 **** Incremental Build of configuration Debug for project 7segCount ****
+12:37:09 **** Incremental Build of configuration Debug for project 7segCount ****
 make all 
+Building target: 7segCount.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,7segCount.map -mmcu=atmega32 -o "7segCount.elf"  ./main.o   
+Finished building target: 7segCount.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S 7segCount.elf  >"7segCount.lss"
+Finished building: 7segCount.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 7segCount.elf  "7segCount.hex"
+Finished building: 7segCount.hex
+ 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 7segCount.elf
 AVR Memory Usage
@@ -16,5 +29,5 @@ Data:          8 bytes (0.4% Full)
 Finished building: sizedummy
  
 
-18:46:35 Build Finished (took 179ms)
+12:37:10 Build Finished (took 1s.176ms)
 

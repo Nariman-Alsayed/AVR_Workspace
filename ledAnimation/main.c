@@ -16,15 +16,15 @@ void main(void)
 	while(1)
 	{
 		PORTA = 0xff;
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00000001;
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00000010;
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00000100;
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00001000;
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00010000;
 		_delay_ms(50);
 		PORTA = 0b00100000;

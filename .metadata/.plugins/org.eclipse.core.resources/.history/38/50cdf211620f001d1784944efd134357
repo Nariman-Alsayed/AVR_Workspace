@@ -1,0 +1,118 @@
+/*
+ * STEPPER_MOTOR.c
+ *
+ *  Created on: May 31, 2022
+ *      Author: abdelrahmanhossam
+ */
+
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "DIO_Interface.h"
+#include "STEPPER_MOTOR.h"
+#include <util/delay.h>
+#define F_CPU 8000000UL
+
+#define STEPPER_MOTOR_PORT        PORTA
+#define STEPPER_MOTOR_PIN_BLUE    PIN0
+#define STEPPER_MOTOR_PIN_PINK    PIN1
+#define STEPPER_MOTOR_PIN_YELLOW  PIN2
+#define STEPPER_MOTOR_PIN_ORANGE  PIN3
+
+void stepClockWise(void)
+{
+    // step 1
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_BLUE, LOW);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_PINK, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_YELLOW, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_ORANGE, HIGH);
+    _delay_ms(10);
+
+    // step 2
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_BLUE, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_PINK, LOW);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_YELLOW, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_ORANGE, HIGH);
+    _delay_ms(10);
+
+    // step 3
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_BLUE, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_PINK, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_YELLOW, LOW);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_ORANGE, HIGH);
+    _delay_ms(10);
+
+    // step 4
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_BLUE, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_PINK, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_YELLOW, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_ORANGE, LOW);
+    _delay_ms(10);
+}
+
+void stepCounterClockWise(void)
+{
+    // step 4
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_BLUE, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_PINK, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_YELLOW, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_ORANGE, LOW);
+    _delay_ms(10);
+
+    // step 3
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_BLUE, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_PINK, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_YELLOW, LOW);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_ORANGE, HIGH);
+    _delay_ms(10);
+
+    // step 2
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_BLUE, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_PINK, LOW);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_YELLOW, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_ORANGE, HIGH);
+    _delay_ms(10);
+
+    // step 1
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_BLUE, LOW);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_PINK, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_YELLOW, HIGH);
+    MDIO_voidSetPinValue(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_ORANGE, HIGH);
+    _delay_ms(10);
+}
+
+void HSTEPPERMOTOR_voidMoveClockWise(u16 A_u16Degree)
+{
+    u16 local_u16NoOfSteps = (A_u16Degree * 2048UL) / 360;
+    u16 local_u16NoOfIterations = local_u16NoOfSteps / 4;
+    for (u16 i = 0; i < local_u16NoOfIterations; i++)
+    {
+        stepClockWise();
+    }
+}
+
+void HSTEPPERMOTOR_voidMoveCounterClockWise(u16 A_u16Degree)
+{
+    u16 local_u16NoOfSteps = (A_u16Degree * 2048UL) / 360;
+    u16 local_u16NoOfIterations = local_u16NoOfSteps / 4;
+    for (u16 i = 0; i < local_u16NoOfIterations; i++)
+    {
+        stepCounterClockWise();
+    }
+}
+
+void HSTEPPERMOTOR_voidInit(void)
+{
+    MDIO_voidSetPinDirection(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_BLUE, OUTPUT);
+    MDIO_voidSetPinDirection(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_PINK, OUTPUT);
+    MDIO_voidSetPinDirection(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_YELLOW, OUTPUT);
+    MDIO_voidSetPinDirection(STEPPER_MOTOR_PORT, STEPPER_MOTOR_PIN_ORANGE, OUTPUT);
+}
+void main(void)
+{
+	HSTEPPERMOTOR_voidInit();
+
+    while (1)
+    {
+    }
+}

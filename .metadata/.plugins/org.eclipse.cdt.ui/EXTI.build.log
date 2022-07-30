@@ -1,0 +1,20 @@
+11:52:08 **** Incremental Build of configuration Debug for project EXTI ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EXTI.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2788 bytes (8.5% Full)
+(.text + .data + .bootloader)
+
+Data:          1 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+11:52:09 Build Finished (took 169ms)
+

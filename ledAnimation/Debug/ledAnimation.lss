@@ -1475,7 +1475,7 @@ void main(void)
      b64:	ff 4f       	sbci	r31, 0xFF	; 255
      b66:	80 e0       	ldi	r24, 0x00	; 0
      b68:	90 e0       	ldi	r25, 0x00	; 0
-     b6a:	a8 e4       	ldi	r26, 0x48	; 72
+     b6a:	a8 ec       	ldi	r26, 0xC8	; 200
      b6c:	b2 e4       	ldi	r27, 0x42	; 66
      b6e:	80 83       	st	Z, r24
      b70:	91 83       	std	Z+1, r25	; 0x01
@@ -1678,7 +1678,7 @@ _delay_loop_2(uint16_t __count)
      cc0:	ff 4f       	sbci	r31, 0xFF	; 255
      cc2:	91 83       	std	Z+1, r25	; 0x01
      cc4:	80 83       	st	Z, r24
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00000001;
      cc6:	eb e3       	ldi	r30, 0x3B	; 59
      cc8:	f0 e0       	ldi	r31, 0x00	; 0
@@ -1689,7 +1689,7 @@ _delay_loop_2(uint16_t __count)
      cd2:	ff 4f       	sbci	r31, 0xFF	; 255
      cd4:	80 e0       	ldi	r24, 0x00	; 0
      cd6:	90 e0       	ldi	r25, 0x00	; 0
-     cd8:	a8 e4       	ldi	r26, 0x48	; 72
+     cd8:	a8 ec       	ldi	r26, 0xC8	; 200
      cda:	b2 e4       	ldi	r27, 0x42	; 66
      cdc:	80 83       	st	Z, r24
      cde:	91 83       	std	Z+1, r25	; 0x01
@@ -1886,7 +1886,7 @@ _delay_ms(double __ms)
      e2e:	ff 4f       	sbci	r31, 0xFF	; 255
      e30:	91 83       	std	Z+1, r25	; 0x01
      e32:	80 83       	st	Z, r24
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00000010;
      e34:	eb e3       	ldi	r30, 0x3B	; 59
      e36:	f0 e0       	ldi	r31, 0x00	; 0
@@ -1897,7 +1897,7 @@ _delay_ms(double __ms)
      e40:	ff 4f       	sbci	r31, 0xFF	; 255
      e42:	80 e0       	ldi	r24, 0x00	; 0
      e44:	90 e0       	ldi	r25, 0x00	; 0
-     e46:	a8 e4       	ldi	r26, 0x48	; 72
+     e46:	a8 ec       	ldi	r26, 0xC8	; 200
      e48:	b2 e4       	ldi	r27, 0x42	; 66
      e4a:	80 83       	st	Z, r24
      e4c:	91 83       	std	Z+1, r25	; 0x01
@@ -2094,7 +2094,7 @@ _delay_ms(double __ms)
      f9c:	ff 4f       	sbci	r31, 0xFF	; 255
      f9e:	91 83       	std	Z+1, r25	; 0x01
      fa0:	80 83       	st	Z, r24
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00000100;
      fa2:	eb e3       	ldi	r30, 0x3B	; 59
      fa4:	f0 e0       	ldi	r31, 0x00	; 0
@@ -2105,7 +2105,7 @@ _delay_ms(double __ms)
      fae:	ff 4f       	sbci	r31, 0xFF	; 255
      fb0:	80 e0       	ldi	r24, 0x00	; 0
      fb2:	90 e0       	ldi	r25, 0x00	; 0
-     fb4:	a8 e4       	ldi	r26, 0x48	; 72
+     fb4:	a8 ec       	ldi	r26, 0xC8	; 200
      fb6:	b2 e4       	ldi	r27, 0x42	; 66
      fb8:	80 83       	st	Z, r24
      fba:	91 83       	std	Z+1, r25	; 0x01
@@ -2302,7 +2302,7 @@ _delay_ms(double __ms)
     110a:	ff 4f       	sbci	r31, 0xFF	; 255
     110c:	91 83       	std	Z+1, r25	; 0x01
     110e:	80 83       	st	Z, r24
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00001000;
     1110:	eb e3       	ldi	r30, 0x3B	; 59
     1112:	f0 e0       	ldi	r31, 0x00	; 0
@@ -2313,7 +2313,7 @@ _delay_ms(double __ms)
     111c:	ff 4f       	sbci	r31, 0xFF	; 255
     111e:	80 e0       	ldi	r24, 0x00	; 0
     1120:	90 e0       	ldi	r25, 0x00	; 0
-    1122:	a8 e4       	ldi	r26, 0x48	; 72
+    1122:	a8 ec       	ldi	r26, 0xC8	; 200
     1124:	b2 e4       	ldi	r27, 0x42	; 66
     1126:	80 83       	st	Z, r24
     1128:	91 83       	std	Z+1, r25	; 0x01
@@ -2464,7 +2464,7 @@ _delay_ms(double __ms)
     121c:	f1 f7       	brne	.-4      	; 0x121a <main+0x6e4>
     121e:	9a af       	std	Y+58, r25	; 0x3a
     1220:	89 af       	std	Y+57, r24	; 0x39
-		_delay_ms(50);
+		_delay_ms(100);
 		PORTA = 0b00010000;
     1222:	eb e3       	ldi	r30, 0x3B	; 59
     1224:	f0 e0       	ldi	r31, 0x00	; 0
